@@ -10,7 +10,7 @@
 
  + test.html file is a  example which you just make a little configuration use it.
  + upload.properties file contains four properties.
-    + **uploadDir**   you can upload to which Dir(AbsolutePath).
+    + **uploadDir**   you can upload to which Dir(AbsolutePath). web.xml also will set same.
     + **hostUrl** you can access uploadDir path.
     + **file** you will upload file  property name  default 'file'.
     + **suffixFilter** you must split it by ','.it will intercept file by what you set here.
