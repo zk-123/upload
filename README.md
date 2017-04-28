@@ -16,4 +16,5 @@
     + **suffixFilter** you must split it by ','.it will intercept file by what you set here.
  
  + log4j.properties also will create a log file  default name 'log4j';
-
+ + dependency log4j.jar
+ + resource dir is lack of standardization 
