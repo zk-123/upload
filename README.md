@@ -1,6 +1,8 @@
 
-### 一个单独的上传文件服务（one upload file servlet）
-
+# 一个单独的上传文件服务（one upload file servlet）
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/monsterLin/Pigeon/master/LICENSE)
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](http://shields.io/)
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)]()
 #### 目的
 
  + 上传文件的方式越来越多样,根据开发和运行环境的不同，把它独立出来也越来越必要.
