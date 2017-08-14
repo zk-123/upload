@@ -18,4 +18,7 @@
 ### 说明
 
   + `upload.properties` 中还有其他的属性,包括：上传文件的name属性,上传文件的大小,允许上传的文件格式(nameProperty,maxFileSize,suffixFilter).
-  + 因为采用的jetty 容器，所以真正的部署时，要用maven打包成**Fat Jar**并配置运行的main类
+  
+  + 因为采用的jetty 容器，所以真正的部署时，要用maven打包成**Fat Jar**并配置运行的main类.
+  
+  + linux下运行**Fat jar**如果省事的话,直接挂起或者创建软链接进而定义成一个服务启动；windows下可以通过[exe4j](http://hnpy.onlinedown.net/down/exe4j_windows-x64_5_0_1.zip)将jar包变成服务启动。
