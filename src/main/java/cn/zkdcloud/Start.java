@@ -39,7 +39,7 @@ public class Start {
         uploadServlet.getRegistration().setMultipartConfig(new MultipartConfigElement(location,maxFileSize,-1L,0));
         context.addServlet(uploadServlet,"/upload");// http://ip:port/upload
         context.setContextPath("/");
-        context.setResourceBase(classLoader.getResource("").getPath().replace("/target/classes/","/src/main/resources/"));
+        context.setResourceBase(Start.class.getResource("").getPath().replace("/target/classes/","/src/main/resources/"));
         context.setClassLoader(classLoader);
 
         HandlerCollection handlers = new HandlerCollection();
