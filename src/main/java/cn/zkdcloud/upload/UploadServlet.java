@@ -27,14 +27,15 @@ public class UploadServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String hostUrl = "http://" + req.getRemoteHost() + ":" + PropertiesUtil.getPort();
         preHandler(req,resp);
-        Part part = req.getPart(ConstUtil.getNameProperty());
+        Part part = req.getPart(PropertiesUtil.getNameProperty());
         String originFileName = part.getSubmittedFileName();
         String ret = checkFile(part);//检查文件
 
         if (ret != null) {
             part.write(ret+"/"+ originFileName);
-            resp.getWriter().print(ConstUtil.getHostUrl() + "/resources/" + ret + "/" + originFileName);
+            resp.getWriter().print(hostUrl + "/resources/" + ret + "/" + originFileName);
 
             logger.info("ip为" + getIp(req) + "存入的文件是：" + originFileName);
         } else {
@@ -65,7 +66,7 @@ public class UploadServlet extends HttpServlet {
         String submittedFileName = part.getSubmittedFileName();
         String suffix = submittedFileName.substring(submittedFileName.lastIndexOf('.') + 1, submittedFileName.length());
 
-        for (String filter : ConstUtil.getSuffixFilter().split(",")) {
+        for (String filter : PropertiesUtil.getSuffixFilter().split(",")) {
             if (suffix.equals(filter)){
                 initSubDir(suffix); //创建子目录
                 return suffix;
@@ -91,7 +92,7 @@ public class UploadServlet extends HttpServlet {
      * @param dirName dirName
      */
     private void initSubDir(String dirName) {
-        String subDirPath = ConstUtil.getLocation() + "/" + dirName;
+        String subDirPath = PropertiesUtil.getLocation() + "/" + dirName;
         File subDir = new File(subDirPath);
 
         if (!subDir.exists()){
@@ -99,4 +100,5 @@ public class UploadServlet extends HttpServlet {
             logger.info("初始化子目录："+dirName);
         }
     }
+
 }

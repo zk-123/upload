@@ -1,6 +1,6 @@
 package cn.zkdcloud;
 
-import cn.zkdcloud.upload.ConstUtil;
+import cn.zkdcloud.upload.PropertiesUtil;
 import cn.zkdcloud.upload.UploadServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerCollection;
@@ -21,7 +21,7 @@ public class Start {
      */
     public static WebAppContext getUploadContext(){
         WebAppContext uploadContext = new WebAppContext();
-        String uploadResources = ConstUtil.getLocation();
+        String uploadResources = PropertiesUtil.getLocation();
 
         uploadContext.setResourceBase(uploadResources);
         uploadContext.setContextPath("/resources");
@@ -29,9 +29,9 @@ public class Start {
     }
 
     public static void main(String[] args) throws Exception {
-        Server server = new Server(1000);
-        String location = ConstUtil.getLocation();//本地位置
-        Long maxFileSize = ConstUtil.getMaxFileSize();//最大上传大小
+        Server server = new Server(PropertiesUtil.getPort());
+        String location = PropertiesUtil.getLocation();//本地位置
+        Long maxFileSize = PropertiesUtil.getMaxFileSize();//最大上传大小
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         WebAppContext context = new WebAppContext();
 

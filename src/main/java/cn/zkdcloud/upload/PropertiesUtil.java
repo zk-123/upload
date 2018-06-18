@@ -10,8 +10,8 @@ import java.util.Properties;
  * @author zk
  * @version  2017/4/16.
  */
-public class ConstUtil {
-    private static Logger logger = Logger.getLogger(ConstUtil.class);
+public class PropertiesUtil {
+    private static Logger logger = Logger.getLogger(PropertiesUtil.class);
 
     private static Properties properties = new Properties();
     /*
@@ -19,7 +19,7 @@ public class ConstUtil {
      */
     static {
         try {
-            properties.load(ConstUtil.class.getClassLoader().getResourceAsStream("upload.properties"));
+            properties.load(PropertiesUtil.class.getClassLoader().getResourceAsStream("upload.properties"));
         } catch (IOException e) {
             logger.error("读取不到配置目录文件");
         }
@@ -70,15 +70,12 @@ public class ConstUtil {
         return properties.getProperty("suffixFilter");
     }
 
-    /** 获取访问的URL
+    /**
+     * 获取端口
      *
-     * @return URL
+     * @return port of integer
      */
-    public static String getHostUrl(){
-        String hostUrl = properties.getProperty("hostUrl").replace("\\","/");
-        if(hostUrl.endsWith("/")){
-            hostUrl.substring(0,hostUrl.length()-1);
-        }
-        return hostUrl;
+    public static Integer getPort(){
+        return Integer.valueOf(properties.getProperty("port"));
     }
 }

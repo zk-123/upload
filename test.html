@@ -17,7 +17,7 @@
         var formDate = new FormData();
         formDate.append("file",$('#file')[0].files[0]);
         $.ajax({
-            url:"http://localhost:1000/upload",
+            url:"http://127.0.0.1:1000/upload",
             data:formDate,
             cache: false,
             type:"POST",
